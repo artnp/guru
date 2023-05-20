@@ -24,7 +24,7 @@
         <script>
 
                 function removeUrl(str) {
-                 return str.split('>>')[1]
+                 return str.split('@$')[1]
                 }
                 function GetName(str) {
                     return str.split('index.html#')[1]
@@ -33,7 +33,7 @@
             url = decodeURIComponent(window.location.href)
             x = removeUrl(url)
             showName = GetName(url)
-            Clipname = showName.split('>>')[0]
+            Clipname = showName.split('@$')[0]
             document.getElementById('Clipname').innerHTML= '🌍: '+Clipname   
             Iframex1 = '<iframe width="100%" height="83%" src="https://www.youtube.com/embed/'
             Iframex2 = '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>'
