@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>▰Guru_engine</title>
+    </head>
+    <body>
+<center>
+<br>
+<input autocomplete="off" type="search" id="search" placeholder="ถามกูรูว่า?" style="font-size:20pt;height:40px;width:500px;"/>
+<ul id="results"></ul></center>
+<script>
+                    function removeUrl(str) {
+                 return str.split('index.html#')[1]
+                }
+            url = decodeURIComponent(window.location.href)
+            urlx = removeUrl(url)
+</script>
+<script src="data.js"></script>
+<script>
+Iframex1 = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'
+Iframex2 = '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>'
+
+const search = document.getElementById("search")
+const results = document.getElementById("results")
+let search_term = urlx
+
+const showList = () => {
+  results.innerHTML = ""
+  data
+    .filter((item) => {
+      return (
+        item.name.toLowerCase().includes(search_term)
+        
+      )
+    })
+    .forEach((e) => {
+      const li = document.createElement("li")
+      li.innerHTML = '<h3>'+e.name+'</h3>' + Iframex1 + e.x + '?start=' + e.y + '&end=' + e.z + Iframex2
+      results.appendChild(li)
+    })
+}
+showList()
+
+search.addEventListener("input", (event) => {
+  search_term = event.target.value.toLowerCase()
+  showList()
+})
+
+</script>
+
+</body>
+</html>

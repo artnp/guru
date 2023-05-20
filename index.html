@@ -8,13 +8,15 @@
         </head>
     <body>
 <header>
-    <table>
+    <table style="width:100%;">
         <td><a href="https://www.facebook.com/commerce/products/%E0%B8%AB%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B8%A7%E0%B8%87%E0%B9%83%E0%B8%99/6960117470688813" target="_blank"><img src="img/vip.png" width="10%"></a><a href="https://linktr.ee/mr.0.618" target="_blank"><img src="img/linktree.png" width="10%"></a></td>
         <td></td>
         <td><center>สนับสนุนโปรเจค<br><img src="img/qr.png" width="15%" onclick="qr()"></center></td>
-        <td>ค้นคลังปัญญา <input style="font-size:20pt;height:40px;width:300px;" autocomplete="off" />
-            <button type="submit" id="save" style="font-size:19pt;height:40px;" onClick="guru()">🔎ค้นหา</button>
+        <td >
+		ค้นคลังปัญญา <input id="engine" style="font-size:20pt;height:40px;width:160px;" autocomplete="off" />
+        <button type="submit" id="save" style="font-size:17pt;height:40px;" onClick="guru()">🔎ค้นหา</button>
         </td>
+		
     </table>
 </header>
 <div id="vdo"></div>
@@ -49,14 +51,15 @@
         'ขอบคุณที่สนับสนุนโปรเจคนี้ 🤗'
         })}
         function guru(){
+            engine = document.getElementById('engine').value
         Swal.fire({
         html:
-        '<iframe src="http://127.0.0.1:5500" width="100%" height="100%" style="border:none" scrolling="no"></iframe>',
-        width: '100%',
+        '<iframe src="http://127.0.0.1:5500/engine'+ '/index.html#'+ engine +'" width="1200" height="900" style="border:none" scrolling="no"></iframe>',
+        width: '1200',
         showCloseButton: true,
         focusConfirm: false,
         confirmButtonText:
-        '▰ รับทราบ!!'
+        '▰ Guru_engine'
         })}
             </script>
     </body>
