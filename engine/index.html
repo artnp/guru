@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" href="style.css">
         <title>▰ Guru_engine</title>
     </head>
@@ -24,6 +25,8 @@ const search = document.getElementById("search")
 const results = document.getElementById("results")
 let search_term = urlx
 
+
+
 const showList = () => {
   results.innerHTML = ""
   data
@@ -35,7 +38,9 @@ const showList = () => {
     })
     .forEach((e) => {
       const li = document.createElement("li")
-      li.innerHTML = '<h3>'+e.name+'</h3>' + Iframex1 + e.x + '?start=' + e.y + '&end=' + e.z + Iframex2
+      share = 'https://artnp.github.io/guru/index.html#'+encodeURIComponent(e.name)+'@$'+e.x+'?start='+e.y+'&end='+e.z
+      shareBox = '<img src="share.png" width="4%">&nbsp;&nbsp;<input id="share" style="font-size:15pt;height:24px;width:525px;" autocomplete="off" value="'+share+'"" onClick="this.select();"/>'
+      li.innerHTML = '<h3>'+e.name+'</h3>' + Iframex1 + e.x + '?start=' + e.y + '&end=' + e.z + Iframex2 +'<br>'+ shareBox+'<br><hr>'
       results.appendChild(li)
     })
 }
