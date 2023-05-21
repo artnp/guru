@@ -2,9 +2,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="lite-yt-embed.css" />
         <title>▰ Guru_engine</title>
     </head>
     <body>
+    <script src="lite-yt-embed.js"></script>
 <center>
 <br>
 <input autocomplete="off" type="search" id="search" placeholder="ถามกูรูว่า?" style="font-size:20pt;height:40px;width:500px;"/>
@@ -18,9 +20,9 @@
 </script>
 <script src="data.js"></script>
 <script>
-Iframex1 = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'
-Iframex2 = '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>'
-
+// Iframex1 = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'
+// Iframex2 = '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>'
+// '<h3>'+e.name+'</h3>' + Iframex1 + e.x + '?start=' + e.y + '&end=' + e.z + Iframex2 +'<br>'+
 const search = document.getElementById("search")
 const results = document.getElementById("results")
 let search_term = urlx
@@ -33,14 +35,13 @@ const showList = () => {
     .filter((item) => {
       return (
         item.name.toLowerCase().includes(search_term)
-        
       )
     })
     .forEach((e) => {
       const li = document.createElement("li")
       share = 'https://artnp.github.io/guru/index.html#'+encodeURIComponent(e.name)+'@$'+e.x+'?start='+e.y+'&end='+e.z
       shareBox = '<img src="share.png" width="4%">&nbsp;&nbsp;<input id="share" style="font-size:15pt;height:24px;width:525px;" autocomplete="off" value="'+share+'"" onClick="this.select();"/>'
-      li.innerHTML = '<h3>'+e.name+'</h3>' + Iframex1 + e.x + '?start=' + e.y + '&end=' + e.z + Iframex2 +'<br>'+ shareBox+'<br><hr>'
+      li.innerHTML = '<lite-youtube videoid="'+e.x+'" params="controls=0&start='+e.y+'&end='+e.z+'&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>'+ shareBox+'<br><hr>'
       results.appendChild(li)
     })
 }
@@ -52,6 +53,5 @@ search.addEventListener("input", (event) => {
 })
 
 </script>
-
 </body>
 </html>
