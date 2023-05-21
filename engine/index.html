@@ -41,7 +41,7 @@ const showList = () => {
       const li = document.createElement("li")
       share = 'https://artnp.github.io/guru/index.html#'+encodeURIComponent(e.name)+'@$'+e.x+'?start='+e.y+'&end='+e.z
       shareBox = '<img src="share.png" width="4%">&nbsp;&nbsp;<input id="share" style="font-size:15pt;height:24px;width:525px;" autocomplete="off" value="'+share+'"" onClick="this.select();"/>'
-      li.innerHTML = '<lite-youtube videoid="'+e.x+'" params="controls=0&start='+e.y+'&end='+e.z+'&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>'+ shareBox+'<br><hr>'
+      li.innerHTML = '<h3>'+e.name+'</h3>'+'<lite-youtube videoid="'+e.x+'" params="controls=0&start='+e.y+'&end='+e.z+'&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>'+ shareBox+'<br><hr>'
       results.appendChild(li)
     })
 }
