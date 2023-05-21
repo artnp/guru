@@ -1,4 +1,10 @@
-
+body {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+    font-family: Roboto,"Helvetica Neue",Arial,sans-serif;
+  flex-direction: column;
+}
 input {
   width: 250px;
   text-align: center;
@@ -9,4 +15,8 @@ ul {
   flex-direction: column;
   align-items: center;
   padding: 0;
+}
+h3 { 
+  background-color: rgb(112, 112, 112);
+  color: rgb(255, 255, 255);
 }
