@@ -30,6 +30,11 @@ let search_term = urlx
 
 
 const showList = () => {
+  if (document.getElementById('search').value === ''){
+    document.getElementById('results').style.visibility = "hidden"
+  } else {
+    document.getElementById('results').style.visibility = "visible"
+  }
   results.innerHTML = ""
   data
     .filter((item) => {
