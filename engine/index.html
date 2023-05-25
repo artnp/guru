@@ -30,9 +30,9 @@ document.getElementById('search').value = urlx
 
 const showList = () => {
   if (document.getElementById('search').value === ''){
-    document.getElementById('results').style.visibility = "hidden"
+    document.getElementById('results').style.display = 'none';
   } else {
-    document.getElementById('results').style.visibility = "visible"
+    document.getElementById('results').style.display = ""
   }
   results.innerHTML = ""
   data
