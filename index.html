@@ -22,8 +22,16 @@
 <div id="vdo"></div>
 <center><h2><div id="Clipname"></div></h2></center>
         <script>
+            Iframex1 = '<iframe width="100%" height="83%" src="https://www.youtube.com/embed/'
+            Iframex2 = '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>'
 
-                function removeUrl(str) {
+            if (document.location.href.length < 40) {
+            document.getElementById('Clipname').innerHTML= '🌍: โปรเจค: Guru '
+            document.getElementById('vdo').innerHTML= Iframex1 + 'u3LfsuQHk4E?start=0&end=38' + Iframex2
+
+                }
+                else {
+                    function removeUrl(str) {
                  return str.split('@$')[1]
                 }
                 function GetName(str) {
@@ -36,9 +44,11 @@
             Clipname = showName.split('@$')[0]
             document.title = Clipname + ' ••>โปรเจค: Guru'
             document.getElementById('Clipname').innerHTML= '🌍: '+ Clipname   
-            Iframex1 = '<iframe width="100%" height="83%" src="https://www.youtube.com/embed/'
-            Iframex2 = '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>'
             document.getElementById('vdo').innerHTML= Iframex1 + x + Iframex2
+                }
+
+
+
 
 
         function qr(){
