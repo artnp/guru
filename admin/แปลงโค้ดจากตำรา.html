@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Convert Text Input</title>
+</head>
+<body>
+<center>
+  <textarea id="converter" cols="130" rows="10"></textarea><br>
+<input type="submit" value="Convert.1" onclick="convert()"/>
+<br><br>
+<textarea id="converter2" cols="130" rows="10"></textarea><br>
+<input type="submit" value="Convert.2" onclick="convert2()"/>
+<br><br>
+<textarea id="converter3" cols="130" rows="10" onClick="this.select();"></textarea>
+</center>
+
+
+<script>
+function convert() {
+  convert_Ori = document.getElementById('converter').value
+  rem = convert_Ori.replace("<ul><u>บท1</u></ul>","")
+  rem = rem.replace("<ul><u>บท2</u></ul>","")
+  rem = rem.replace("<ul><u>บท3</u></ul>","")
+  rem = rem.replace("<ul><u>บท4</u></ul>","")
+  rem = rem.replace("<ul><u>บท5</u></ul>","")
+  rem = rem.replace("<ul><u>บท6</u></ul>","")
+  rem = rem.replace("<ul><u>บท7</u></ul>","")
+  rem = rem.replace("<ul><u>บท8</u></ul>","")
+  rem = rem.replace("<ul><u>บท9</u></ul>","")
+  rem = rem.replace("<ul><u>ปิดจบ</u></ul>","")
+  rem = rem.replace(/(^[ \t]*\n)/gm, "")
+  rem = rem.replaceAll("</a></li>","")
+  rem = rem.replaceAll(');">',",")
+  rem = rem.replaceAll("',","?t=,")
+  rem = rem.replaceAll('onclick="vdo(',"https://youtu.be/")
+  rem = rem.replaceAll("be/'","be/")
+
+
+  function removeTextBeforeIndexOf(rem, char) {
+  const index = rem.indexOf(char);
+  if (index === -1) {
+    return rem;
+  } else {
+    return rem.substring(index + 10);
+  }
+}
+
+  lines = rem.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    result = lines[i].split('" ')[1]
+    prologueX = removeTextBeforeIndexOf(result, "prologue#")
+    prologueX = removeTextBeforeIndexOf(prologueX, "epilogue#")
+    // result = result.replaceAll("undefined","")
+    document.getElementById('converter2').innerHTML +=  prologueX +'\n'
+  }
+}
+
+function convert2() {
+  Copycat = document.getElementById('converter2').value
+  document.getElementById('converter3').value = Copycat.replace(/(^[ \t]*\n)/gm, "")
+}
+</script>
+</body>
+</html>
