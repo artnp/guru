@@ -129,7 +129,7 @@
                 const randomIndex = Math.floor(Math.random() * data.length);
                 const randomItem = data[randomIndex];
                 document.getElementById('Clipname').innerHTML= randomItem.name
-                document.getElementById('vdo').innerHTML= Iframex1 + randomItem.x + '?start=' + startSec + '&end=' + endSec + Iframex2
+                document.getElementById('vdo').innerHTML= Iframex1 + randomItem.x + '?start=' + randomItem.y + '&end=' + randomItem.z + Iframex2
                 startSec = randomItem.y
                 endSec = randomItem.z
                 timeCode = ((Number(endSec)-Number(startSec))).toFixed(2)
