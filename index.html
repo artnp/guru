@@ -10,9 +10,8 @@
     <body>
 <div id='header'>
     <table style="width:100%;">
-        <td><a href="https://twitter.com/hashtag/%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%80%E0%B8%88%E0%B8%84Treebooks?src=hashtag_click&f=live" target="_blank"><img src="img/vip.png" width="8%"></a><a href="https://linktr.ee/mr.0.618" target="_blank"><img src="img/linktree.png" width="8%"></a></td>
-        <td></td>
-        <td></td>
+        <td><a href="https://twitter.com/hashtag/%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%80%E0%B8%88%E0%B8%84Treebooks?src=hashtag_click&f=live" target="_blank"><img src="img/vip.png" width="12%"></a><a href="https://linktr.ee/mr.0.618" target="_blank"><img src="img/linktree.png" width="12%"></a></td>
+        <td><img src="img/random.png" onclick="randomWisdom()" width="24%"></td>
         <td>
 		ค้นคลังปัญญา <input id="engine" style="font-size:20pt;height:40px;width:160px;" autocomplete="off" onClick="this.select();"/>
         <button type="submit" id="save" style="font-size:17pt;height:40px;" onClick="guru()">🔎ค้นหา</button>
@@ -124,5 +123,24 @@
         'กดตัว c ซับไตเติ้ลจะขึ้นโชว์'
         })}
             </script>
+            <script src="engine/data.js"></script>
+            <script>
+            function randomWisdom(){
+                const randomIndex = Math.floor(Math.random() * data.length);
+                const randomItem = data[randomIndex];
+                document.getElementById('Clipname').innerHTML= randomItem.name
+                document.getElementById('vdo').innerHTML= Iframex1 + randomItem.x + Iframex2
+                startSec = randomItem.y
+                endSec = randomItem.z
+                timeCode = ((Number(endSec)-Number(startSec))).toFixed(2)
+            if (timeCode >= 60){
+                timeCode2 = (timeCode/60).toFixed(2)
+                document.getElementById('timeCode').innerHTML= timeCode2.match(/\d+/)[0]+' นาที : '+ timeCode2.split('.')[1] + ' วินาที'
+            } else if (timeCode < 60){
+                document.getElementById('timeCode').innerHTML= timeCode.match(/\d+/)[0]+' วินาที'
+            }
+            document.title = randomItem.name + ' ••>โปรเจค: Guru'
+            }
+        </script>
     </body>
 </html>
