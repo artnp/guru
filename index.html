@@ -22,14 +22,13 @@
     <table style="width: 100%; height:40%;">
         <tr>
           <td style="width: 10%; vertical-align: top; height: 100%;">
-            ความรู้:
             <h2><div id="Clipname"></div></h2>
             <hr>
             ความยาว:
             <h3><div id="timeCode"></div></h3>
             <hr>
-            ยอดเข้าดู:<br>
-            <-xxx->
+            ระบบโลกใหม่:
+            <h4><div id="countdown"></div></h4>
             <hr>
             แปลซับไทย:<br>
             <img src="img/cc.png" width="70%" onclick="cc()">
@@ -117,6 +116,22 @@
         confirmButtonText:
         'กดตัว c ซับไตเติ้ลจะขึ้นโชว์'
         })}
+
+        function updateCountdown(timeRemaining) {
+            const countdownElement = document.getElementById('countdown');
+            const days = Math.floor(timeRemaining / (60 * 60 * 24));
+            countdownElement.innerHTML = `อีก ${days} วัน`;
+        }
+        fetch('https://api.blockchair.com/bitcoin/stats')
+            .then(response => response.json())
+            .then(data => {
+                const currentBlockHeight = data.data.blocks;
+                const blocksPerHalving = 210000;
+                const blocksUntilHalving = blocksPerHalving - (currentBlockHeight % blocksPerHalving);
+                const secondsUntilHalving = blocksUntilHalving * 10 * 60; // Assuming 10 minutes per block
+                updateCountdown(secondsUntilHalving);
+            })
+            .catch(error => console.error('Error fetching data:', error));
             </script>
             <script src="engine/data.js"></script>
             <script>
