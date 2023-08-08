@@ -11,3 +11,7 @@ h2 {
     width:100%;
     height:9%;
   }
+  img:hover,
+input#shareThis:hover {
+  cursor: cell;
+}
