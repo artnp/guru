@@ -54,7 +54,7 @@
             Iframex2 = '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>'
 
             if (document.location.href.length < 40) {
-            document.getElementById('Clipname').innerHTML= '🌍'
+            document.getElementById('Clipname').innerHTML= 'โปรเจคกูรู'
             document.getElementById('vdo').innerHTML= Iframex1 + 'q8j8zJlgY-M?start=0&end=63' + Iframex2
 
                 }
@@ -84,6 +84,27 @@
             document.getElementById('vdo').innerHTML= Iframex1 + x + Iframex2
             document.getElementById('shareThis').value = window.location.origin + '/guru/index.html#'+Clipname+'@$'+x
                 }
+                if (window.location.href.substring(window.location.origin.length) === window.location.pathname){
+                window.onload = function() {
+  var textToSpeak = 'PROJECT GURU 2023'; // Replace this with the text you want to speak
+  var speechSynthesisUtterance = new SpeechSynthesisUtterance(textToSpeak);
+  speechSynthesisUtterance.lang = "TH"; // Set the language (Thai in this case)
+  speechSynthesisUtterance.pitch = 5; // Range from 0 to 2, where 1 is the default
+  speechSynthesisUtterance.rate = 0.9;  // Range from 0.1 to 10, where 1 is the default
+  speechSynthesisUtterance.volume = 5;
+  window.speechSynthesis.speak(speechSynthesisUtterance);
+}} else {
+    var textToSpeak = Clipname;
+setTimeout(function() {
+  var speechSynthesisUtterance = new SpeechSynthesisUtterance(textToSpeak);
+  speechSynthesisUtterance.lang = "TH"; // Set the language (Thai in this case)
+  speechSynthesisUtterance.pitch = 5; // Range from 0 to 2, where 1 is the default
+  speechSynthesisUtterance.rate = 0.9;  // Range from 0.1 to 10, where 1 is the default
+  speechSynthesisUtterance.volume = 7; // Valid range is from 0 to 1
+  window.speechSynthesis.speak(speechSynthesisUtterance);
+}, 1000); 
+}
+
 
         function qr(){
         Swal.fire({
@@ -151,7 +172,19 @@
             }
             document.title = randomItem.name + ' ••>โปรเจค: Guru'
             document.getElementById('shareThis').value = window.location.origin + '/guru/index.html#'+randomItem.name+'@$'+ randomItem.x + '?start=' + randomItem.y + '&end=' + randomItem.z
-            }
+            
+         
+            var textToSpeak = randomItem.name;
+setTimeout(function() {
+  var speechSynthesisUtterance = new SpeechSynthesisUtterance(textToSpeak);
+  speechSynthesisUtterance.lang = "TH"; // Set the language (Thai in this case)
+  speechSynthesisUtterance.pitch = 5; // Range from 0 to 2, where 1 is the default
+  speechSynthesisUtterance.rate = 0.9;  // Range from 0.1 to 10, where 1 is the default
+  speechSynthesisUtterance.volume = 7; // Valid range is from 0 to 1
+  window.speechSynthesis.speak(speechSynthesisUtterance);
+}, 1000); 
+
+        }
         </script>
     </body>
 </html>
