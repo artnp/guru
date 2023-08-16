@@ -1,17 +1,27 @@
 body {
     background-color: rgb(32, 32, 32);
     color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
 }
 
 h2 { 
     background-color: rgb(53, 53, 53);
     color: rgb(255, 255, 255);
-  }
-  header {
-    width:100%;
-    height:9%;
-  }
-  img:hover,
+}
+
+header {
+    width: 100%;
+    height: 9%;
+}
+
+img:hover,
 input#shareThis:hover {
-  cursor: cell;
+    cursor: pointer;
+}
+
+/* ทำให้รูปภาพปรับขนาดอัตโนมัติ */
+img {
+    max-width: 100%;
+    height: auto;
 }

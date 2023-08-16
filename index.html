@@ -167,7 +167,7 @@ setTimeout(function() {
             .then(response => response.text())
             .then(content => {
                 var lineCount = ((countLines(content))-2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                document.getElementById('database').innerHTML='ฐานข้อมูล: <u>' + lineCount + '</u> ความรู้'
+                document.getElementById('database').innerHTML='ฐานข้อมูล: <u>' + lineCount + '</u>'
             })
 
             function randomWisdom(){
