@@ -12,6 +12,7 @@
     <table style="width:100%;">
         <td><a href="https://twitter.com/hashtag/%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%80%E0%B8%88%E0%B8%84Treebooks?src=hashtag_click&f=live" target="_blank"><img src="img/vip.png" width="12%"></a><a href="https://linktr.ee/mr.0.618" target="_blank"><img src="img/linktree.png" width="12%"></a></td>
         <td><img src="img/random.png" onclick="randomWisdom()" width="24%"></td>
+        <td><div id="database"></div></td>
         <td>
 		<input id="engine" style="font-size:20pt;height:40px;width:150px;" autocomplete="off" onClick="this.select();"/>
         <button type="submit" id="save" style="font-size:17pt;height:40px;" onClick="guru()">🔎ค้นหา</button>
@@ -154,8 +155,21 @@ setTimeout(function() {
             })
             .catch(error => console.error('Error fetching data:', error));
             </script>
-            <script src="engine/data.js"></script>
+            <script src="https://artnp.github.io/guru/engine/data.js"></script>
             <script>
+            function countLines(content) {
+            lines = content.split('\n')
+            return lines.length;
+        }
+        var scriptTag = document.querySelector('script[src="https://artnp.github.io/guru/engine/data.js"]')
+        var contentURL = scriptTag.getAttribute('src')
+        fetch(contentURL)
+            .then(response => response.text())
+            .then(content => {
+                var lineCount = ((countLines(content))-2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                document.getElementById('database').innerHTML='ฐานข้อมูล: <u>' + lineCount + '</u> ความรู้'
+            })
+
             function randomWisdom(){
                 const randomIndex = Math.floor(Math.random() * data.length);
                 const randomItem = data[randomIndex];
@@ -170,6 +184,7 @@ setTimeout(function() {
             } else if (timeCode < 60){
                 document.getElementById('timeCode').innerHTML= timeCode.match(/\d+/)[0]+' วินาที'
             }
+            
             document.title = randomItem.name + ' ••>โปรเจค: Guru'
             document.getElementById('shareThis').value = window.location.origin + '/guru/index.html#'+randomItem.name+'@$'+ randomItem.x + '?start=' + randomItem.y + '&end=' + randomItem.z
             
