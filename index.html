@@ -88,7 +88,7 @@
             document.title = Clipname + ' ••>โปรเจค: Guru'
             document.getElementById('Clipname').innerHTML= Clipname
             document.getElementById('vdo').innerHTML= Iframex1 + x + Iframex2
-            document.getElementById('shareThis').value = window.location.origin + '/guru/index.html?'+Clipname+'@$'+x
+            document.getElementById('shareThis').value = window.location.origin + '/guru/index.html?'+encodeURIComponent(Clipname)+'@$'+x
                 }
                 if (window.location.href.substring(window.location.origin.length) === window.location.pathname){
                 window.onload = function() {
