@@ -51,8 +51,10 @@
         </tr>
       </table>
         <script>
-     if(/^\?fbclid=/.test(location.search))
-     location.replace(location.href.replace(/\?fbclid.+/, ""));
+      if (window.location.href.includes('fbclid')) {
+  const updatedURL = window.location.href.replace(/[?&]fbclid=[^&#]+/, '').replace(/[&?]$/, '');
+  window.location.replace(updatedURL);
+}
 
             Iframex1 = '<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/'
             Iframex2 = '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>'
@@ -67,7 +69,7 @@
                  return str.split('@$')[1]
                 }
                 function GetName(str) {
-                    return str.split('index.html#')[1]
+                    return str.split('index.html?')[1]
                 }
 
             url = decodeURIComponent(window.location.href)
@@ -86,7 +88,7 @@
             document.title = Clipname + ' ••>โปรเจค: Guru'
             document.getElementById('Clipname').innerHTML= Clipname
             document.getElementById('vdo').innerHTML= Iframex1 + x + Iframex2
-            document.getElementById('shareThis').value = window.location.origin + '/guru/index.html#'+Clipname+'@$'+x
+            document.getElementById('shareThis').value = window.location.origin + '/guru/index.html?'+Clipname+'@$'+x
                 }
                 if (window.location.href.substring(window.location.origin.length) === window.location.pathname){
                 window.onload = function() {
@@ -124,7 +126,7 @@ setTimeout(function() {
             engine = document.getElementById('engine').value
         Swal.fire({
         html:
-        '<iframe src="engine'+ '/index.html#'+ engine +'" width="1200" height="800" style="border:none" ></iframe>',
+        '<iframe src="engine'+ '/index.html?'+ engine +'" width="1200" height="800" style="border:none" ></iframe>',
         width: '1200',
         showCloseButton: true,
         focusConfirm: false,
@@ -189,7 +191,7 @@ setTimeout(function() {
             }
             
             document.title = randomItem.name + ' ••>โปรเจค: Guru'
-            document.getElementById('shareThis').value = window.location.origin + '/guru/index.html#'+randomItem.name+'@$'+ randomItem.x + '?start=' + randomItem.y + '&end=' + randomItem.z
+            document.getElementById('shareThis').value = window.location.origin + '/guru/index.html?'+encodeURIComponent(randomItem.name)+'@$'+ randomItem.x + '?start=' + randomItem.y + '&end=' + randomItem.z
             
          
             var textToSpeak = randomItem.name;
