@@ -1,0 +1,155 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>โปรเจค: Guru (x)</title>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<link href="dark.css" rel="stylesheet">
+<script src="sweetalert2.min.js"></script>
+
+        </head>
+    <body>
+    <table style="width: 100%; height:40%;">
+        <tr>
+          <td style="width: 10%; vertical-align: top; height: 100%;"><br>
+            <img src="img/random.png" onclick="randomWisdom()" width="100%">
+            <h2><div id="Clipname"></div></h2>
+            <hr>
+            ความยาว:
+            <h3><div id="timeCode"></div></h3>
+            <hr>
+            แปลซับไทย:<br>
+            <img src="img/cc.png" width="70%" onclick="cc()">
+            <br><hr>
+            บริจาค:
+            <br><img src="img/qr.png" width="74%" onclick="qr()">
+            <hr>
+            แชร์ให้เพื่อน:<br>
+            <input id="shareThis" style="font-size:18pt;height:30px;width:100%;" autocomplete="off" onClick="this.select();"/>
+        </td>
+          <td style="width: 100%; vertical-align: top;"><br><br><br>
+            <div style="position: relative; padding-bottom: 49%; height: 0;">
+                <div id="vdo"></div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <script src="engine/data.js"></script>
+        <script>
+     if(/^\?fbclid=/.test(location.search))
+     location.replace(location.href.replace(/\?fbclid.+/, ""));
+    
+        randomDataElement = document.getElementById("random-data");
+        randomIndex = Math.floor(Math.random() * data.length);
+        randomItem = data[randomIndex];
+
+            Iframex1 = '<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/'
+            Iframex2 = '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>'
+
+            document.getElementById('Clipname').innerHTML= randomItem.name
+            document.getElementById('vdo').innerHTML= Iframex1 + randomItem.x +'?start=' + randomItem.y + '&end=' + randomItem.z + Iframex2
+            document.getElementById('shareThis').value = window.location.origin + '/guru/index.html#'+randomItem.name+'@$'+ randomItem.x + '?start=' + randomItem.y + '&end=' + randomItem.z
+     
+
+            Clipname = randomItem.name
+            document.title = randomItem.name + ' ••>โปรเจค: Guru'
+            timeCode = ((Number(randomItem.z)-Number(randomItem.y))).toFixed(2)
+            if (timeCode >= 60){
+                timeCode2 = (timeCode/60).toFixed(2)
+                document.getElementById('timeCode').innerHTML= timeCode2.match(/\d+/)[0]+' นาที : '+ timeCode2.split('.')[1] + ' วินาที'
+            } else if (timeCode < 60){
+                document.getElementById('timeCode').innerHTML= timeCode.match(/\d+/)[0]+' วินาที'
+            }
+
+    
+            var textToSpeak = randomItem.name;
+setTimeout(function() {
+  var speechSynthesisUtterance = new SpeechSynthesisUtterance(textToSpeak);
+  speechSynthesisUtterance.lang = "TH"; // Set the language (Thai in this case)
+  speechSynthesisUtterance.pitch = 5; // Range from 0 to 2, where 1 is the default
+  speechSynthesisUtterance.rate = 0.9;  // Range from 0.1 to 10, where 1 is the default
+  speechSynthesisUtterance.volume = 7; // Valid range is from 0 to 1
+  window.speechSynthesis.speak(speechSynthesisUtterance);
+}, 1000); 
+
+
+        function qr(){
+        Swal.fire({
+        html:
+        '<center><img src="img/qr.png" width="60%"><br><q>๓ ๖ ๙</q><br>3 6 9</center>',
+        width: 800,
+        showCloseButton: true,
+        focusConfirm: false,
+        confirmButtonText:
+        'ขอบคุณที่สนับสนุนโปรเจค'
+        })}
+        function guru(){
+            engine = document.getElementById('engine').value
+        Swal.fire({
+        html:
+        '<iframe src="engine'+ '/index.html#'+ engine +'" width="1200" height="800" style="border:none" ></iframe>',
+        width: '1200',
+        showCloseButton: true,
+        focusConfirm: false,
+        confirmButtonText:
+        '▰ Guru_engine'
+        })}
+        function cc(){
+        Swal.fire({
+        html:
+        '<iframe src="addon.html" width="800" height="660" style="border:none" ></iframe>',
+        width: 800,
+        showCloseButton: true,
+        focusConfirm: false,
+        confirmButtonText:
+        'กดตัว c ซับไตเติ้ลจะขึ้นโชว์'
+        })}
+
+            </script>
+            <script src="https://artnp.github.io/guru/engine/data.js"></script>
+            <script>
+            function countLines(content) {
+            lines = content.split('\n')
+            return lines.length;
+        }
+        var scriptTag = document.querySelector('script[src="https://artnp.github.io/guru/engine/data.js"]')
+        var contentURL = scriptTag.getAttribute('src')
+        fetch(contentURL)
+            .then(response => response.text())
+            .then(content => {
+                var lineCount = ((countLines(content))-2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                document.getElementById('database').innerHTML='ฐานข้อมูล: <u>' + lineCount + '</u>'
+            })
+
+            function randomWisdom(){
+                const randomIndex = Math.floor(Math.random() * data.length);
+                const randomItem = data[randomIndex];
+                document.getElementById('Clipname').innerHTML= randomItem.name
+                document.getElementById('vdo').innerHTML= Iframex1 + randomItem.x + '?start=' + randomItem.y + '&end=' + randomItem.z + Iframex2
+                startSec = randomItem.y
+                endSec = randomItem.z
+                timeCode = ((Number(endSec)-Number(startSec))).toFixed(2)
+            if (timeCode >= 60){
+                timeCode2 = (timeCode/60).toFixed(2)
+                document.getElementById('timeCode').innerHTML= timeCode2.match(/\d+/)[0]+' นาที : '+ timeCode2.split('.')[1] + ' วินาที'
+            } else if (timeCode < 60){
+                document.getElementById('timeCode').innerHTML= timeCode.match(/\d+/)[0]+' วินาที'
+            }
+            
+            document.title = randomItem.name + ' ••>โปรเจค: Guru'
+            document.getElementById('shareThis').value = window.location.origin + '/guru/index.html#'+randomItem.name+'@$'+ randomItem.x + '?start=' + randomItem.y + '&end=' + randomItem.z
+            
+         
+            var textToSpeak = randomItem.name;
+setTimeout(function() {
+  var speechSynthesisUtterance = new SpeechSynthesisUtterance(textToSpeak);
+  speechSynthesisUtterance.lang = "TH"; // Set the language (Thai in this case)
+  speechSynthesisUtterance.pitch = 5; // Range from 0 to 2, where 1 is the default
+  speechSynthesisUtterance.rate = 0.9;  // Range from 0.1 to 10, where 1 is the default
+  speechSynthesisUtterance.volume = 7; // Valid range is from 0 to 1
+  window.speechSynthesis.speak(speechSynthesisUtterance);
+}, 1000); 
+
+        }
+        </script>
+    </body>
+</html>
