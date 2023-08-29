@@ -8,19 +8,46 @@
     body {
   overflow: hidden;
 }
+     .black-box {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 99%;
+    overflow: hidden;
+    position: relative;
+  }
+  .flashing-bar {
+    width: 10px;
+    height: 15px;
+    background-color: white;
+	position: absolute;
+    animation: flashing 1.5s infinite;
+  }
+
+  @keyframes flashing {
+    0%, 49% {
+      opacity: 0;
+    }
+    50%, 100% {
+      opacity: 1;
+    }
+  }
 </style>
         </head>
     <body>
+      	<div class="black-box"><center>
+<div class="flashing-bar"></div><i>กดปุ่ม > เพื่อสุ่มความรู้ในคลังข้อมูล</i>
+</center></div>
     <table style="width: 100%; ">
         <tr>
             <td><center>
-                <h2><div id="Clipname"></div></h2>
                        <img src="img/random.png" onclick="randomWisdom()" width="10%">
+                       <h2><div id="Clipname"></div></h2>
                     </center>
                    </td>
                    </tr>
         <tr>
-          <td><br>
+          <td>
             <div style="position: relative; padding-bottom: 49%; height: 0;">
                 <div id="vdo"></div>
             </div>
@@ -39,7 +66,7 @@
         randomIndex = Math.floor(Math.random() * data.length);
         randomItem = data[randomIndex];
 
-            Iframex1 = '<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/'
+            Iframex1 = '<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 80%;" src="https://www.youtube.com/embed/'
             Iframex2 = '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>'
 
             document.getElementById('Clipname').innerHTML= randomItem.name
