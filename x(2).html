@@ -75,17 +75,6 @@
             document.title = randomItem.name + ' ••>โปรเจค: Guru'
 
 
-    
-            var textToSpeak = randomItem.name;
-setTimeout(function() {
-  var speechSynthesisUtterance = new SpeechSynthesisUtterance(textToSpeak);
-  speechSynthesisUtterance.lang = "TH"; // Set the language (Thai in this case)
-  speechSynthesisUtterance.pitch = 5; // Range from 0 to 2, where 1 is the default
-  speechSynthesisUtterance.rate = 0.9;  // Range from 0.1 to 10, where 1 is the default
-  speechSynthesisUtterance.volume = 7; // Valid range is from 0 to 1
-  window.speechSynthesis.speak(speechSynthesisUtterance);
-}, 1000); 
-
             </script>
             <script src="https://artnp.github.io/guru/engine/data.js"></script>
             <script>
@@ -103,28 +92,7 @@ setTimeout(function() {
                 document.getElementById('vdo').innerHTML= Iframex1 + randomItem.x + '?start=' + randomItem.y + '&end=' + randomItem.z + Iframex2
                 startSec = randomItem.y
                 endSec = randomItem.z
-                timeCode = ((Number(endSec)-Number(startSec))).toFixed(2)
-            if (timeCode >= 60){
-                timeCode2 = (timeCode/60).toFixed(2)
-                document.getElementById('timeCode').innerHTML= timeCode2.match(/\d+/)[0]+' นาที : '+ timeCode2.split('.')[1] + ' วินาที'
-            } else if (timeCode < 60){
-                document.getElementById('timeCode').innerHTML= timeCode.match(/\d+/)[0]+' วินาที'
-            }
-            
             document.title = randomItem.name + ' ••>โปรเจค: Guru'
-            document.getElementById('shareThis').value = window.location.origin + '/guru/index.html#'+randomItem.name+'@$'+ randomItem.x + '?start=' + randomItem.y + '&end=' + randomItem.z
-            
-         
-            var textToSpeak = randomItem.name;
-setTimeout(function() {
-  var speechSynthesisUtterance = new SpeechSynthesisUtterance(textToSpeak);
-  speechSynthesisUtterance.lang = "TH"; // Set the language (Thai in this case)
-  speechSynthesisUtterance.pitch = 5; // Range from 0 to 2, where 1 is the default
-  speechSynthesisUtterance.rate = 0.9;  // Range from 0.1 to 10, where 1 is the default
-  speechSynthesisUtterance.volume = 7; // Valid range is from 0 to 1
-  window.speechSynthesis.speak(speechSynthesisUtterance);
-}, 1000); 
-
         }
         </script>
     </body>
